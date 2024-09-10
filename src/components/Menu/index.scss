@@ -1,0 +1,60 @@
+:is(.modal,.popover).menu {
+    box-shadow: var(--elevation1);
+
+    > div {
+        padding: 4px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        align-items: stretch;
+        justify-content: flex-start;
+    }
+}
+
+.menu-header {
+    padding: 0 8px;
+    margin: 0 4px;
+    min-height: 24px;
+    display: flex;
+    text-wrap: nowrap;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: var(--font-size-s);
+    color: rgba(var(--color-on-surface), var(--opacity-inv2));
+}
+
+.menu-indent {
+    min-width: 20px;
+    max-width: 20px;
+}
+
+.btn.menu-item {
+    justify-content: flex-start;
+    margin: 0 4px;
+    width: calc(100% - 8px);
+
+    > .btn-layer {
+        white-space: nowrap;
+    }
+
+    &[data-trailing]{
+        > .btn-layer {
+            width: 100%;
+        }
+    }
+}
+
+.menu-item-trailing-shortcut {
+    display: flex;
+    gap: 4px;
+    padding: 6px 0;
+}
+
+.popover.sub-menu {
+    width: 100%;
+
+    > .menu-item {
+        width: calc(100% - 8px);
+    }
+}

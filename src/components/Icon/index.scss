@@ -1,0 +1,20 @@
+.icon {
+    display: block;
+    font-size: 20px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal !important;
+    line-height: 1;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+    &[data-inline] {
+        display: inline;
+        font-size: inherit;
+    }
+
+    &[data-filled] {
+        // TODO: add new font-family for filled icons
+    }
+}

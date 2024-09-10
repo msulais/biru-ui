@@ -1,0 +1,110 @@
+.textfield.dropdown {
+    &:not([data-dropdown-readonly]){
+        > div:first-child {
+            
+            @media (hover:hover) {
+                &:hover {
+                    cursor: pointer;
+                    --bg-opacity: var(--opacity2);
+                    
+                    & * {
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            &:active {
+                --bg-opacity: var(--opacity2);
+            }
+
+            &[data-readonly] {
+                &::before {
+                    min-height: 2px;
+                }
+            }
+
+            &[data-focused] {
+                --bg-opacity: 1;
+                --bg-color: var(--color-surface);
+                border-color: rgba(var(--color-on-surface), var(--opacity2));
+                
+                &[data-compact] {
+                    &::before {
+                        animation: dropdown-start-focus-compact .3s var(--transition-spring);
+                    }
+                }
+    
+                &::before {
+                    background-color: rgb(var(--color-accent));
+                    animation: dropdown-start-focus .3s var(--transition-spring);
+                    
+                    [data-corner=full-round] & {
+                        animation: full-round-dropdown-start-focus .3s var(--transition-spring);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes dropdown-start-focus {
+    from {
+        width: 0;
+    }
+    to {
+        width: calc(100% - 24px);
+    }
+}
+
+@keyframes dropdown-start-focus-compact {
+    from {
+        width: 0;
+    }
+    to {
+        width: calc(100% - 16px);
+    }
+}
+
+@keyframes full-round-dropdown-start-focus {
+    from {
+        width: 0;
+    }
+    to {
+        width: calc(100% - 40px);
+    }
+}
+
+:is(.dropdown-header, .dropdown-footer) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    &:empty {
+        display: none;
+    }
+}
+
+.dropdown-footer {
+    padding-bottom: 4px;
+}
+
+.dropdown-header {
+    padding-top: 4px;
+}
+
+.modal.menu.dropdown-menu > div {
+    padding: 0;
+    gap: 0;
+}
+
+.dropdown-items {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px;
+    flex: 1;
+    padding: 4px 0;
+    max-height: 100%;
+    width: 100%;
+    overflow: auto;
+}
